@@ -14,7 +14,7 @@
 		"start:lambda": "tsc && sam local start-api"
 	},
 	"dependencies": {
-		"@vendia/serverless-express": "^4.12.6",
+		"@codegenie/serverless-express": "^4.16.0",
 		"body-parser": "^1.20.3",
 		"cookie-parser": "^1.4.7",
 		"cors": "^2.8.5",
