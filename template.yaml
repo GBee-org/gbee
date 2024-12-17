@@ -21,8 +21,8 @@ Resources:
   App:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: app/dist/
-      Handler: lambda.handler
+      CodeUri: .
+      Handler: app/dist/lambda.handler
       Runtime: nodejs20.x
       Architectures:
         - x86_64
