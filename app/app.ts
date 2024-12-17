@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 app.use(routes);
 
-app.get("/",
+app.get("/api",
   (req: Request, res: Response) => {
     res.send("Welcome to Gnest App");
 });
