@@ -7,8 +7,13 @@ Description: >
   
 Globals:
   Function:
+    CodeUri: .
+    Runtime: nodejs20.x
+    Architectures:
+      - x86_64
     MemorySize: 256
-    Timeout: 3
+    Timeout: 100
+    Tracing: Active
     LoggingConfig:
       LogFormat: JSON
 
@@ -16,25 +21,23 @@ Resources:
   GnestRestApi:
     Type: AWS::Serverless::Api
     Properties:
-      StageName: api
+      StageName: prod
       BinaryMediaTypes:
         - "*~1*"
 
   App:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: .
       Handler: app/dist/lambda.handler
-      Runtime: nodejs20.x
-      Architectures:
-        - x86_64
+      MemorySize: 1024
       Events:
         AppCall:
           Type: Api
           Properties:
             Path: /{proxy+}
             Method: ANY
-            RestApiId: GnestRestApi
+            RestApiId:
+              Ref: GnestRestApi
 
   ApplicationResourceGroup:
     Type: AWS::ResourceGroups::Group
@@ -53,4 +56,4 @@ Resources:
 Outputs:
   AppApi:
     Description: "API Gateway endpoint URL for Prod stage for Hello World function"
-    Value: !Sub "https://${GnestRestApi}.execute-api.${AWS::Region}.amazonaws.com/api/"
+    Value: !Sub "https://${GnestRestApi}.execute-api.${AWS::Region}.amazonaws.com/prod/"
