@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sam build && sam deploy
+sam build && yes | sam deploy

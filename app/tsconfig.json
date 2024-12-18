@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "ESNext",
-    "moduleResolution": "node",
+    "module":"ESNext",
+    "moduleResolution":"node",
+    "preserveConstEnums": true,
     "outDir": "dist",
     "strict": true,
-    "esModuleInterop": true,
+    "esModuleInterop": true, 
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
   "include": ["**/*.ts"],
-  "exclude": ["./node_modules"]
+  "exclude": ["node_modules"]
 }
