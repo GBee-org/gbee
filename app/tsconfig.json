@@ -7,13 +7,13 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "outDir": "dist",
+    "outDir": "../dist",
     "types": ["jest", "reflect-metadata"],
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
     "emitDecoratorMetadata": true
 
   },
-  "include": ["src/**/*.ts", "test/**/*.ts", "lambda.ts", "local.ts"],
+  "include": ["src/**/*.ts", "test/**/*.ts", "lambda.ts", "app.local.ts"],
   "exclude": ["node_modules/"]
 }

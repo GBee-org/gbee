@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sam build && yes | sam deploy
+sam build && yes | sam deploy --region eu-west-3

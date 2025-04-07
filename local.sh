@@ -1,9 +1,10 @@
 #!/bin/bash
+source ~/.zshrc
 
-# Build application express
-cd app/ && pnpm run build
+# # Build application express
+# cd app/ && pnpm run build
 
-cd ../
+# cd ../
 
-# Build application aws-sam and lanch locally
-sam build && sam local start-api --env-vars app/env.json --skip-pull-image
+# # Build application aws-sam and launch locally
+sam build && sam local start-api --skip-pull-image
