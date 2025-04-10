@@ -8,6 +8,7 @@
 	"private": true,
 	"license": "MIT",
 	"scripts": {
+		"build": "node esbuild.config.js",
     "unit": "jest",
     "lint": "eslint '*.ts' --quiet --fix",
     "compile": "tsc",
