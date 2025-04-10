@@ -1,5 +1,4 @@
 #!/bin/bash
-source ~/.zshrc
 
 # # Build application express
 # cd app/ && pnpm run build
