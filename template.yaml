@@ -10,6 +10,16 @@ Globals:
     Tracing: Active
     LoggingConfig:
       LogFormat: JSON
+    Environment:
+      Variables:
+        NODE_ENV: !Ref NODE_ENV
+        JWT_SECRET: !Ref JWT_SECRET
+        SERVER_PORT: !Ref SERVER_PORT
+        SERVER_HOSTNAME: !Ref SERVER_HOSTNAME
+        DATABASE_URL: !Ref DATABASE_URL
+        DEFAULT_USER_NAME: !Ref DEFAULT_USER_NAME
+        DEFAULT_USER_EMAIL: !Ref DEFAULT_USER_EMAIL
+        DEFAULT_USER_PASSWORD: !Ref DEFAULT_USER_PASSWORD
 
 Resources:
   GnestRestApi:
