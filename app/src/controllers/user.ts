@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { Controller, Route } from "../decorators";
-import { CreateUser, Role } from "../models";
+import { CreateUser, GetUser, Role } from "../models";
 import { authorize } from "../middleware";
 import { userService } from "../services";
 
@@ -37,7 +37,8 @@ class UsersController {
     const newUsers = req.body as CreateUser[];
     try {
       const usersCreated = await userService.createUser(newUsers);
-      if (!usersCreated) return res.status(400).json({ message: 'Users creation failed' });
+      if (!usersCreated || usersCreated instanceof Error) 
+        return res.status(400).json({ message: 'Users creation failed' });
       return res.status(200).json(usersCreated);
     } catch (error) {
       logging.error(error);

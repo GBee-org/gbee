@@ -72,6 +72,12 @@ async function createUser(users: CreateUser[]) {
   for (let i = 0; i < users.length; i++) {
     const user = users[i];
     try {
+      if (user.password != user.confirmPassword) {
+        return new Error(
+          `Error while creating user with username=${user.username}` +
+            { message: 'Password don\'t mathc with confirm password' }
+        );
+      }
       const userCreated = await TypeORM.Create('users', user);
       if (!userCreated) null;
       else usersCreated.push(formatUserInfo(userCreated));
