@@ -1,5 +1,15 @@
-import app from './app.js';
+import { ServerConfig } from "./src/config";
+import Server from "./src/app";
 
-const PORT: number = 3000;
+(async () => {
+  const app = await Server();
 
-app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
+  logging.info('-----------------------------------------');
+  logging.info('Start Server');
+  logging.info('-----------------------------------------');
+  app.listen(ServerConfig.PORT, () => {
+    logging.info('-----------------------------------------');
+    logging.info('Server started: ' + ServerConfig.HOSTNAME + ':' + ServerConfig.PORT);
+    logging.info('-----------------------------------------');
+  });
+})();
