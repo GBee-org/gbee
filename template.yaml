@@ -4,7 +4,19 @@ Description: >
   gnest-app
 
   Sample SAM Template for gnest-app
-  
+
+Parameters:
+  DatabaseUrl:
+    Type: String
+  JwtSecret:
+    Type: String
+  DefaultUserName:
+    Type: String
+  DefaultUserEmail:
+    Type: String
+  DefaultUserPassword:
+    Type: String
+
 Globals:
   Function:
     Tracing: Active
@@ -12,14 +24,11 @@ Globals:
       LogFormat: JSON
     Environment:
       Variables:
-        NODE_ENV: !Ref NODE_ENV
-        JWT_SECRET: !Ref JWT_SECRET
-        SERVER_PORT: !Ref SERVER_PORT
-        SERVER_HOSTNAME: !Ref SERVER_HOSTNAME
-        DATABASE_URL: !Ref DATABASE_URL
-        DEFAULT_USER_NAME: !Ref DEFAULT_USER_NAME
-        DEFAULT_USER_EMAIL: !Ref DEFAULT_USER_EMAIL
-        DEFAULT_USER_PASSWORD: !Ref DEFAULT_USER_PASSWORD
+        JWT_SECRET: !Ref JwtSecret
+        DATABASE_URL: !Ref DatabaseUrl
+        DEFAULT_USER_NAME: !Ref DefaultUserName
+        DEFAULT_USER_EMAIL: !Ref DefaultUserEmail
+        DEFAULT_USER_PASSWORD: !Ref DefaultUserPassword
 
 Resources:
   GnestRestApi:
@@ -29,17 +38,6 @@ Resources:
       BinaryMediaTypes:
         - "*~1*"
 
-  GnestLayer:
-    Type: AWS::Serverless::LayerVersion
-    Properties:
-      LayerName: Gnest-Dependencies
-      Description: Gnest layer
-      ContentUri: app/node_modules
-      CompatibleRuntimes:
-        - nodejs20.x
-      LicenseInfo: MIT
-      RetentionPolicy: Retain
-
   App:
     Type: AWS::Serverless::Function
     Properties:
@@ -48,8 +46,6 @@ Resources:
       Runtime: nodejs20.x
       Architectures:
         - x86_64
-      Layers:
-        - !Ref GnestLayer
       MemorySize: 1024
       Timeout: 30
       Events:
