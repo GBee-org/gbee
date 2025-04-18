@@ -5,7 +5,7 @@ import 'reflect-metadata';
 
 import { corsHandler, declareHandler, loggingHandler, routeNotFound } from './middleware';
 import { defineRoutes } from './modules/route';
-import { AppDataSource, ServerConfig } from './config';
+import { AppDataSource } from './config';
 import { AuthController, UsersController } from './controllers';
 import { userService } from './services';
 

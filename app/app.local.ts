@@ -1,4 +1,3 @@
-import { ServerConfig } from "./src/config";
 import Server from "./src/app";
 
 (async () => {
@@ -7,9 +6,9 @@ import Server from "./src/app";
   logging.info('-----------------------------------------');
   logging.info('Start Server');
   logging.info('-----------------------------------------');
-  app.listen(ServerConfig.PORT, () => {
+  app.listen(3000, () => {
     logging.info('-----------------------------------------');
-    logging.info('Server started: ' + ServerConfig.HOSTNAME + ':' + ServerConfig.PORT);
+    logging.info('Server started: localhost:' + 3000);
     logging.info('-----------------------------------------');
   });
 })();
