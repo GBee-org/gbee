@@ -1,9 +1,9 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  gnest-app
+  gbee-app
 
-  Sample SAM Template for gnest-app
+  Sample SAM Template for gbee-app
 
 Parameters:
   DatabaseUrl:
@@ -31,7 +31,7 @@ Globals:
         DEFAULT_USER_PASSWORD: !Ref DefaultUserPassword
 
 Resources:
-  GnestRestApi:
+  GBeeRestApi:
     Type: AWS::Serverless::Api
     Properties:
       StageName: prod
@@ -55,7 +55,7 @@ Resources:
             Path: /{proxy+}
             Method: ANY
             RestApiId:
-              Ref: GnestRestApi
+              Ref: GBeeRestApi
     Metadata:
       BuildMethod: esbuild
 
@@ -76,4 +76,4 @@ Resources:
 Outputs:
   AppApi:
     Description: "API Gateway endpoint URL for Prod stage for Hello World function"
-    Value: !Sub "https://${GnestRestApi}.execute-api.${AWS::Region}.amazonaws.com/prod/"
+    Value: !Sub "https://${GBeeRestApi}.execute-api.${AWS::Region}.amazonaws.com/prod/"
