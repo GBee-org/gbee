@@ -54,7 +54,6 @@ export function getCallingFunction(error: Error) {
 
 export function log(message?: any, ...optionalParams: any[]) {
     console.log(
-      `[${new Date().toLocaleString()}]`,
       colours.fg.magenta,
       '[SERVER-LOG] ',
       colours.reset,
@@ -65,7 +64,6 @@ export function log(message?: any, ...optionalParams: any[]) {
 
 export function info(message?: any, ...optionalParams: any[]) {
     console.info(
-      `[${new Date().toLocaleString()}]`,
       colours.fg.cyan,
       '[INFO]',
       colours.reset,
@@ -79,7 +77,6 @@ export function info(message?: any, ...optionalParams: any[]) {
 
 export function warn(message?: any, ...optionalParams: any[]) {
     console.warn(
-      `[${new Date().toLocaleString()}]`,
       colours.fg.yellow,
       '[WARN]',
       colours.reset,
@@ -93,7 +90,6 @@ export function warn(message?: any, ...optionalParams: any[]) {
 
 export function error(message?: any, ...optionalParams: any[]) {
     console.error(
-      `[${new Date().toLocaleString()}]`,
       colours.fg.red,
       '[ERROR]',
       colours.reset,
