@@ -1,4 +1,4 @@
-import { Role } from '..';
+import Role from './enum/Role';
 import { AppDataSource } from '../../config';
 import {
   BeforeInsert,
