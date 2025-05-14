@@ -5,7 +5,7 @@ import { authorize } from "../middleware";
 import { userService } from "../services";
 
 @Controller('/users')
-class UsersController {
+export class UsersController {
   @Route('get', '/get/all', authorize([Role.ADMIN]))
   async getAll(req: Request, res: Response, next: NextFunction) {
     try {
@@ -88,5 +88,3 @@ class UsersController {
     }
   }
 }
-
-export default UsersController;

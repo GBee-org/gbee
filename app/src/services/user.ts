@@ -132,7 +132,7 @@ async function deleteUser(id: number) {
   }
 }
 
-const userService = {
+export const userService = {
   updateUser,
   deleteUser,
   createUser,
@@ -142,5 +142,3 @@ const userService = {
   formatUserInfo,
   initializeDefaultUser
 };
-
-export default userService;

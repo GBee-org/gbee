@@ -101,7 +101,7 @@ export function error(message?: any, ...optionalParams: any[]) {
     );
 }
 
-const logging = {
+export const logging = {
   log,
   info,
   warn,
@@ -124,5 +124,3 @@ declare global {
 
 /** Link the local and global variable */
 globalThis.logging = logging;
-
-export default logging;
