@@ -12,7 +12,7 @@
 		"lint": "eslint '*.ts' --quiet --fix",
 		"test": "npm run compile && npm run unit",
 		"typeorm": "ts-node ./node_modules/typeorm/cli.js",
-		"typeorm:generate": "pnpm run typeorm migration:generate ./src/database/migrations -d ./src/config/data-source.ts",
+		"typeorm:generate": "pnpm run typeorm migration:generate ./src/database/migrations/Migration -d ./src/config/data-source.ts",
 		"typeorm:create": "pnpm run typeorm migration:create ./src/database/migrations",
 		"typeorm:run": "pnpm run typeorm migration:run -d ./src/config/data-source.ts",
 		"typeorm:revert": "pnpm run typeorm migration:revert -d ./src/config/data-source.ts"
