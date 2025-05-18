@@ -6,7 +6,7 @@ import 'reflect-metadata';
 import { corsHandler, declareHandler, loggingHandler, routeNotFound } from './middleware';
 import { defineRoutes } from './modules/route';
 import { AppDataSource } from './config';
-import { AuthController, UsersController } from './controllers';
+import { AuthController, ModelsController, UsersController } from './controllers';
 import { userService } from './services';
 
 export const application = express();
@@ -40,7 +40,7 @@ const Server = async () => {
 
   logging.info('-----------------------------------------');
   logging.info('Define Controller Routing');
-  defineRoutes([AuthController, UsersController], application);
+  defineRoutes([AuthController, UsersController, ModelsController], application);
   application.use(routeNotFound);
 
   return application;
